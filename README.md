@@ -25,7 +25,7 @@ For installation, you would want to boot to a windows floppy to fdisk and format
 
 Then use ```xcopy /s /e R: c:\\win95``` to copy contents from cdrom to hdd.
 
-I turn off acpi in qemu, and run "setup.exe /p i;m /is" from MS DOS.
+I turn off acpi in qemu, and run ```setup.exe /p i;m /is``` from MS DOS.
 
 This will avoid PNP issues and if you have chipset drivers for Pc or Q35 in windows setup folder these will be used during install.
 
@@ -51,7 +51,7 @@ After windows is installed, you should enable DMA for HDD/CD-DVD.
 After DMA is setup you can reboot and use WHPX.
 
 Shutdown/Reboot from windows with WHPX/KVM can be wonky when using start menu to do so.
-It is recommended to find and use reboot shutdown .com files for dos and set these up as bat files/shortcuts to avoid windows asking to scan on bad shutdown. Instructions:
+It is recommended to find and use reboot.com shutdown.com files for dos and set these up as bat files/shortcuts to avoid windows asking to scan on bad shutdown. Instructions:
 
 https://support.novell.com/techcenter/tips/ant19980404.html
 
