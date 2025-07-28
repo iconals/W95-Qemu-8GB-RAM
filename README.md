@@ -61,6 +61,10 @@ https://github.com/crgimenes/shutdown
 Or (not recommended) add autoscan=0 to msdos.sys to avoid scans on bad shutdowns.
 
 At some point you need to use patch9x, this can be done before install or after install is complete.
+```
+https://github.com/JHRobotics/patcher9x
+```
+
 You will need to use rloews patchmem after windows installs, then you can set higher memory limits >512.
 After pachmem us run you can enable himemex using sysenter method (in my case). 
 Then you can setup ramdrives.
