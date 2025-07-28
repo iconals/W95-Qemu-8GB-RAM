@@ -8,7 +8,7 @@ Guide to install Windows 95B in qemu with WHPX/KVM support
 Qemu invocation:
 ```
 ./qemu-system-i386.exe -net none -m 8192 \
- -rtc base=localtime -machine pc,accel=whpx,kernel-irqchip=off,hpet=off,acpi=off  \
+ -rtc base=localtime -machine pc,accel=whpx,kernel-irqchip=off,hpet=off,acpi=on  \
 -L ./share/  -drive file=/l/vxd-test95b.vhd,format=vpc,media=disk \
 -device VGA,addr=0x09 -display sdl,gl=on \
 -audiodev id=sdl,driver=sdl  \
@@ -18,31 +18,33 @@ Qemu invocation:
 
 Or if you want a sound blaster 16 card:
 ```
- -audiodev id=sdl,driver=sdl   -device sb16,audiodev=sdl,irq=5,dma=1,dma16=5,iobase=0x220,version=0x404
+-audiodev id=sdl,driver=sdl   \
+-device sb16,audiodev=sdl,irq=5,dma=1,dma16=5,iobase=0x220,version=0x404 \
+ -device adlib,audiodev=sdl,freq=32000
 ```
 
 For installation, you would want to boot to a windows floppy to fdisk and format drive.
 
 Then use ```xcopy /s /e R: c:\\win95``` to copy contents from cdrom to hdd.
 
-I turn off acpi in qemu, and run ```setup.exe /p i;m /is``` from MS DOS.
+Then run ```setup.exe /p i;m /is``` from MS DOS.
 
-This will avoid PNP issues and if you have chipset drivers for Pc or Q35 in windows setup folder these will be used during install.
+The listed setup command will avoid PNP issues due to ACPI/BIOS conflicts and if you have chipset drivers for Pc or Q35 in windows setup folder these will be used during install.
 
 The setup command needs to be run from dos prompt as it will use mini windows mode and skip disk checks.
 
-After install completes and initial devices are detected you can turn on acpi for qemu and it will be detected.
+After install completes and initial devices are detected you can install drivers for the ACPI PCI Device.
 
 This command specifies whpx, you would use kvm on linux.
 ```
--machine pc,accel=whpx,kernel-irqchip=off,hpet=off,acpi=off
+-machine pc,accel=whpx,kernel-irqchip=off,hpet=off,acpi=on
 ```
 
 If on other platforms without accelerator, or if OS is not booting;
 Also, if install is not compatible with kvm/whpx:
 Use tcg with kernel-irqchip=on
 ```
--machine pc,accel=whpx,kernel-irqchip=off,hpet=off,acpi=off
+-machine pc,accel=whpx,kernel-irqchip=off,hpet=off,acpi=on
 ```
 
 During the setup phase (running setup.exe) you can use whpx.
@@ -123,7 +125,7 @@ Using PCIE topology works fine in windows9x and you can setup pcie-pci bridging 
 
 
 ```
-./qemu-system-i386.exe  -display sdl,gl=on -M q35,acpi=off,hpet=off,sata=off -m 384 \
+./qemu-system-i386.exe  -display sdl,gl=on -M q35,acpi=on,hpet=off,sata=off -m 384 \
  -rtc base=localtime,clock=host  \
 -k en-us -cpu "qemu32,+hv-relaxed,+hv-vpindex,+hv-runtime,+hv-time,+hv-frequencies,hv-no-nonarch-coresharing=on"  \
 -audiodev id=sdl,driver=sdl   \
