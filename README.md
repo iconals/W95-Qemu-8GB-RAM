@@ -51,11 +51,13 @@ After windows is installed, you should enable DMA for HDD/CD-DVD.
 After DMA is setup you can reboot and use WHPX.
 
 Shutdown/Reboot from windows with WHPX/KVM can be wonky when using start menu to do so.
-It is recommended to find and use reboot.com shutdown.com files for dos and set these up as bat files/shortcuts to avoid windows asking to scan on bad shutdown. Instructions:
+It is recommended to find and use reboot.com shutdown.com files for dos and set these up as bat files/shortcuts to avoid windows asking to scan on bad shutdown. 
+Instructions:
 
 https://support.novell.com/techcenter/tips/ant19980404.html
 
 The quit and reboot from this github will work to safely reboot windows using whpx:
+
 https://github.com/crgimenes/shutdown
 
 Or (not recommended) add autoscan=0 to msdos.sys to avoid scans on bad shutdowns.
