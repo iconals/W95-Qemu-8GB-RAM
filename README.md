@@ -44,7 +44,7 @@ If on other platforms without accelerator, or if OS is not booting;
 Also, if install is not compatible with kvm/whpx:
 Use tcg with kernel-irqchip=on
 ```
--machine pc,accel=whpx,kernel-irqchip=off,hpet=off,acpi=on
+-machine pc,accel=tcg,kernel-irqchip=on,hpet=off,acpi=on
 ```
 
 During the setup phase (running setup.exe) you can use whpx.
