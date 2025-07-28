@@ -1,6 +1,9 @@
 # W95-Qemu-8GB-RAM
 Guide to install Windows 95B in qemu with WHPX/KVM support
 
+<img width="1929" height="1232" alt="8gb-95b" src="https://github.com/user-attachments/assets/8bfb7ffb-de05-4f1c-a7f5-45d676ed8bca" />
+<img width="1931" height="1231" alt="8gb-95b2" src="https://github.com/user-attachments/assets/a7f36ad0-77cd-40ba-9786-6878bb7b6988" />
+
 
 Qemu invocation:
 ```
