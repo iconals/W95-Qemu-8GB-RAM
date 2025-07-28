@@ -176,3 +176,25 @@ https://knowledge.broadcom.com/external/article?legacyId=2032184
 You would proceed to install the display device drivers through control panel/display properties in guest VM and add the device drivers for related OS. 
 You can tryout various driver versions as there are a range available depending on OS. 
 
+
+
+
+Extras, these might not be needed; however I have tested and they do work in qemu:
+
+
+https://github.com/mintsuki/cregfix
+Boot disk app to help with boot issues for old OS.
+
+https://nuangel.net/2018/06/the-secret-to-a-stable-windows-95-98-98se-or-millennium-edition-me/
+Bat file that extracts some extra VXD's from windows CD-ROM for better stability.
+
+If you do wish to use VXD_FIX, please run before patch9x, and then run patchmem lastly after installing patch9x.
+
+Notes If you want to try automating patching / unattended install: 
+
+In my testing I modified win95b boot floppy and vxd_fix to check C and not D. 
+After Initial windows setup use win95b bootfloppy to install VXD FIX, then you can run patch9x from its boot image.
+After windows setup phase, shutdown. Run patchmem from modified win95b boot floppy.
+Then you can set large mem size and perform first boot of windows with large memory.
+Remember first boot and 2nd stage of windows setup wont work with acceleration KVM/WHPX.
+
