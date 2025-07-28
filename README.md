@@ -105,3 +105,39 @@ You can also use ramdsk64 if using more than 4GB, then you would add
 Ramdsk64 to autoexec with drive letter assigned. It will use any memory past 4Gb.
 
 For ramdsk32 if using more than 1Gb you need to adjust size to fit between himemx limit and end of pae limits or /4Gb in qemu. README for ramdsk32.
+
+
+Note on networking:
+
+The provided instructions do not cover setting up network, however you can still get to google.com from explorer in windows 95.
+You would want to select a compatible network card and specify to add TCP/IP support for network adapter during initial install.
+Adding networking later can be problamatic if you used any specific setup switches to skip networking installation. 
+None of the 1GB NIC's provided by qemu seem to work in windows 9x. The Tulip adapter counts as 1GB, but does not have TCP in win9x. 
+Some of the early Intel nics (i82557a,b,c) provided by qemu will work in win95B/X using intels drivers:  PRO95_6.2.EXE tested on my end.
+
+Note on Q35:
+
+The Q35 machine is compatible with installing windows 9X provided that you add a secondary controller like piix3-ide or piix4-ide and set up drives on that controller.
+The SATA controller provided by Q35 is not compatible with Win9x; the device can be detected and installed however drive access will crash the VM.
+Using PCIE topology works fine in windows9x and you can setup pcie-pci bridging if needed:
+
+
+```
+./qemu-system-i386.exe  -display sdl,gl=on -M q35,acpi=off,hpet=off,sata=off -m 384 \
+ -rtc base=localtime,clock=host  \
+-k en-us -cpu "qemu32,+hv-relaxed,+hv-vpindex,+hv-runtime,+hv-time,+hv-frequencies,hv-no-nonarch-coresharing=on"  \
+-audiodev id=sdl,driver=sdl   \
+-device pcie-pci-bridge,id=pcie_pci_bridge1,bus=pcie.0  \
+-device pci-bridge,id=pci_bridge1,bus=pcie_pci_bridge1,chassis_nr=1,addr=0x3 \
+-device vmware-svga,bus=pcie.0,id=video0,vgamem_mb=128  \
+-device AC97,bus=pcie.0,audiodev=sdl \
+-device piix4-ide,bus=pcie.0,id=ide1  \
+-netdev user,id=net \
+-device rtl8139,addr=0x4,netdev=net,bus=pci_bridge1 \
+-device ide-cd,bus=ide1.0,drive=disk2 \
+-drive file='L:',id=disk2,if=none,format=raw,media=cdrom   \
+ -device ide-hd,bus=ide1.0,drive=disk1 \
+-drive file=/o/6g.img,id=disk1,if=none,format=raw
+```
+
+
