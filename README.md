@@ -61,9 +61,9 @@ https://github.com/crgimenes/shutdown
 Or (not recommended) add autoscan=0 to msdos.sys to avoid scans on bad shutdowns.
 
 At some point you need to use patch9x, this can be done before install or after install is complete.
-```
+
 https://github.com/JHRobotics/patcher9x
-```
+
 
 You will need to use rloews patchmem after windows installs, then you can set higher memory limits >512.
 After pachmem us run you can enable himemex using sysenter method (in my case). 
@@ -77,9 +77,9 @@ https://rloewelectronics.com/distribute/PATCHMEM/PRO7.2/README.TXT
 
 You may want to grab winset (on win95 cd) and use this to change temp location if you do want to move temp to another drive. Setting temp/tmp variables in config.sys works for dos but might not for all windows apps.
 
-```
+
 https://jeffpar.github.io/kbarchive/kb/140/Q140574/
-```
+
 
 Example config for -m 2048/2G RAM
 
