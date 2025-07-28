@@ -183,9 +183,13 @@ Extras, these might not be needed; however I have tested and they do work in qem
 
 
 https://github.com/mintsuki/cregfix
+
+
 Boot disk app to help with boot issues for old OS.
 
 https://nuangel.net/2018/06/the-secret-to-a-stable-windows-95-98-98se-or-millennium-edition-me/
+
+
 Bat file that extracts some extra VXD's from windows CD-ROM for better stability.
 
 If you do wish to use VXD_FIX, please run before patch9x, and then run patchmem lastly after installing patch9x.
