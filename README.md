@@ -68,7 +68,7 @@ https://github.com/JHRobotics/patcher9x
 
 
 You will need to use rloews patchmem after windows installs, then you can set higher memory limits >512.
-After pachmem us run you can enable himemex using sysenter method (in my case). 
+After pachmem has run you can enable himemex using sysenter method (in my case). 
 Then you can setup ramdrives.
 
 Readme source for Rloew projects: (Https warning)
@@ -140,4 +140,39 @@ Using PCIE topology works fine in windows9x and you can setup pcie-pci bridging 
 -drive file=/o/6g.img,id=disk1,if=none,format=raw
 ```
 
+Note on Chipset Drivers:
+
+As per OEM instructions for Win9X you can add driver files to windows setup folder and these will be used if newer than drivers provided by Windows.
+
+To simplify doing this I reccomend using uniextract to extract files from chipset utility:
+
+https://github.com/Bioruebe/UniExtract2
+
+For PC machine 
+
+https://www.philscomputerlab.com/intel-chipset-drivers.html
+3.20.1008.zip
+
+For Q35 machine 
+INF_AllOS_8.3.1.1009_PV_Intel
+
+You would need to extract archive into folder, then you can use unitextract to extract the setup program, then you would need to extract the data1.cab file. 
+Then pull *.cat files and *.inf files from related folders and place into setup folder. 
+
+
+
+
+Note on Vmware Display device in Qemu:
+
+
+Qemu does use the vmware-display device provided by Vmware and this does work with related drivers in Qemu Guests running windows 95 up to windos 10/11.
+However NO 3d acceleration is provided and 256 color modes / 640x480 resolution is impacted and games needing this will not function.
+External OpenGL acceleration can work with the driver but it is not provided by the driver. 
+
+Instructions for extracting VMware drivers on host to prepare for guest:
+
+https://knowledge.broadcom.com/external/article?legacyId=2032184
+
+You would proceed to install the display device drivers through control panel/display properties in guest VM and add the device drivers for related OS. 
+You can tryout various driver versions as there are a range available depending on OS. 
 
