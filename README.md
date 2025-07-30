@@ -161,7 +161,13 @@ INF_AllOS_8.3.1.1009_PV_Intel
 You would need to extract archive into folder, then you can use unitextract to extract the setup program, then you would need to extract the data1.cab file. 
 Then pull *.cat files and *.inf files from related folders and place into setup folder. 
 
+VGA Drivers:
+if the basic display adapter does not fit your needs softgpu is a free driver that can support windows 95b. Win98/se is better supported:
+https://github.com/JHRobotics/softgpu
 
+There are various releases for softgpu, some options may need to be disabled for win95. Make sure to select Qemu. 
+Vaanilla qemu does work with these drivers, the author provides a fork of qemu-3dfx to provide more features.
+Softgpu does support pc/q35 machines using qemu to run win9x OS with either tcg or KVM/TCG.
 
 
 Note on Vmware Display device in Qemu:
