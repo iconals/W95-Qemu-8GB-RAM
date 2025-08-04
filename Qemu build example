@@ -12,7 +12,7 @@ This script assums you are using qemu 9.0.4.
 export PATH="${PATH}:/c/iasl" &&
 export BUILDIR="~/qemu904" && 
 mkdir $BUILDIR && 
-cd ~/
+cd ~/ &&
 wget https://download.qemu.org/qemu-9.0.4.tar.xz &&
 tar xvJf qemu-9.0.4.tar.xz &&
 cd ~/qemu-9.0.4 &&
