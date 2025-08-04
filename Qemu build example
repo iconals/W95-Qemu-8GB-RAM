@@ -3,6 +3,24 @@ Sample script for building a relocatable qemu from qemu.org in UCRT64 on windows
 This script is also used with this script to copy DLL's from UCRT64/bin so qemu can be relocated. 
 https://gist.github.com/iconals/a17c1bf16e8af24937358e638817e8a2
 
+Packages needed:
+ git
+ base-devel
+ mingw-w64-ucrt-x86_64-SDL2
+ mingw-w64-ucrt-x86_64-glib2
+ mingw-w64-ucrt-x86_64-toolchain
+ mingw-w64-ucrt-x86_64-python-setuptools
+ mingw-w64-ucrt-x86_64-libslirp
+ mingw-w64-ucrt-x86_64-virglrenderer
+ mingw-w64-ucrt-x86_64-zstd
+ mingw-w64-ucrt-x86_64-zlib
+ mingw-w64-ucrt-x86_64-xz
+ mingw-w64-ucrt-x86_64-jemalloc
+ mingw-w64-ucrt-x86_64-gcc-libs
+ mingw-w64-ucrt-x86_64-meson
+ mingw-w64-ucrt-x86_64-libc++
+mingw-w64-ucrt-x86_64-ninja
+
 
 Also OVMF works in qemu on windows as .bin file to load more recent modern guests. 
 This script assums you are using qemu 9.0.4.
