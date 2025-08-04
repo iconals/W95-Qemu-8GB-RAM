@@ -1,0 +1,19 @@
+
+Sample script for building a relocatable qemu from qemu.org in UCRT64 on windows with msys2
+This script is also used with this script to copy DLL's from UCRT64/bin so qemu can be relocated. 
+https://gist.github.com/iconals/a17c1bf16e8af24937358e638817e8a2
+
+
+Also OVMF works in qemu on windows as .bin file to load more recent modern guests. 
+This script assums you are using qemu 9.0.4.
+
+
+#!/usr/bin/bash
+export PATH="${PATH}:/i/iasl" &&
+export BUILDIR="/h/qemu/qemu904" && 
+mkdir $BUILDIR &&  
+../qemu-9.0.4/configure --iasl=/i/iasl/iasl.exe --disable-libdw --enable-tcg --disable-tcg-interpreter --enable-hv-balloon --disable-sparse --disable-guest-agent-msi --disable-plugins --disable-dmg   --enable-fdt=auto --disable-bzip2 --disable-qed --disable-parallels --enable-qcow1 --disable-vmdk --disable-keyring --disable-netmap --disable-slirp-smbd --disable-virtfs --disable-dbus-display --disable-af-xdp --disable-bpf --disable-libvduse  --disable-fuse --disable-fuse-lseek --disable-vhost-user-blk-server --disable-malloc-trim --disable-libkeyutils --disable-selinux --disable-libdaxctl --disable-libpmem --disable-usb-redir --disable-libusb --disable-u2f --disable-canokey --disable-smartcard --disable-snappy --disable-lzo --disable-auth-pam --disable-capstone --disable-nettle --disable-gcrypt  --disable-oss --disable-lzfse --disable-libssh --disable-glusterfs --disable-gnutls --disable-rbd --disable-sdl-image --disable-blkio --disable-rutabaga-gfx    --disable-libiscsi --disable-sndio --disable-spice --disable-spice-protocol --disable-jack --disable-curl --disable-vde --disable-alsa --disable-brlapi --disable-crypto-afalg --disable-pa --disable-pipewire --disable-xkbcommon --disable-cap-ng --disable-seccomp --disable-vmnet --disable-cocoa --disable-coreaudio --disable-attr --disable-libnfs --disable-gio --disable-linux-aio --disable-linux-io-uring  --disable-nvmm --disable-numa --disable-xen-pci-passthrough --disable-kvm --disable-hvf --disable-xen -Dvhost_crypto=disabled -Dvhost_vdpa=disabled -Dvduse_blk_export=disabled  -Dvhost_vdpa=disabled -Dvhost_kernel=disabled -Dvhost_net=disabled  -Dvfio_user_server=disabled -Dvhost_user=disabled  -Dtpm=disabled -Dmultiprocess=disabled   -Dcurses=disabled --enable-opengl --disable-pixman -Dmpath=disabled --disable-png --disable-qga-vss --disable-rdma --disable-replication --disable-gtk --disable-vnc --enable-slirp --target-list=x86_64-softmmu,i386-softmmu --enable-whpx --enable-sdl --audio-drv-list=dsound,sdl --enable-relocatable --enable-strip --disable-debug-info --enable-membarrier --enable-malloc=jemalloc --disable-curses --enable-iconv --enable-lto --enable-tools --disable-guest-agent --prefix=$BUILDIR  --extra-cflags="-Wno-deprecated-declarations -mtune=generic -march=x86-64-v2  -D__USE_MINGW_ANSI_STDIO=1 "   --extra-ldflags=" -lucrt -lvirglrenderer  " --cc=cc --cxx=c++ --host-cc=cc --cross-prefix=  2>&1 | tee ~/Configure-latest.txt  && 
+make -j 6 && make install -j 6 && 
+/i/ming-deps.sh /ucrt64/bin/ ${BUILDIR}/qemu-system-x86_64.exe && 
+mv ~/configure-latest.txt  ${BUILDIR}/configure-latest.txt &&
+cd $BUILDIR/share && cat edk2-i386-vars.fd edk2-x86_64-code.fd > OVMF.FD && cp OVMF.FD OVMF.BIN && cd -
