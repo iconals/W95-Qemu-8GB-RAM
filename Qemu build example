@@ -1,11 +1,13 @@
 
 Sample script for building a relocatable qemu from qemu.org in UCRT64 on windows with msys2
 This script is also used with this script to copy DLL's from UCRT64/bin so qemu can be relocated. 
+
 https://gist.github.com/iconals/a17c1bf16e8af24937358e638817e8a2
 
 Packages needed:
  git
  base-devel
+ busybox
  mingw-w64-ucrt-x86_64-SDL2
  mingw-w64-ucrt-x86_64-glib2
  mingw-w64-ucrt-x86_64-toolchain
@@ -19,7 +21,7 @@ Packages needed:
  mingw-w64-ucrt-x86_64-gcc-libs
  mingw-w64-ucrt-x86_64-meson
  mingw-w64-ucrt-x86_64-libc++
-mingw-w64-ucrt-x86_64-ninja
+ mingw-w64-ucrt-x86_64-ninja
 
 
 Also OVMF works in qemu on windows as .bin file to load more recent modern guests. 
