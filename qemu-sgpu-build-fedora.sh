@@ -5,6 +5,7 @@ sudo dnf install libXxf86vm-devel gcc gcc-c++ kernel-devel  rsync make patch git
 export BUILDIR="/home/$USER/qemu924-smoll-linux-build2" &&
 export SRCDIR="sgpu-build2" &&
 
+echo "preparing depndancies for qemu-3dfx and soft-gpu"
 cd ~/Downloads
 wget https://download.qemu.org/qemu-9.2.4.tar.xz &&
 wget https://github.com/open-watcom/open-watcom-v2/releases/download/Last-CI-build/ow-snapshot.tar.xz &&
