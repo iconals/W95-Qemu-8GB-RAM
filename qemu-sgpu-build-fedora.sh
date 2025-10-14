@@ -1,16 +1,14 @@
 #!/bin/bash
 
-#sudo apt-get install git ninja-build build-essential xxd xz-utils mingw-w64-tools python3-pkgconfig libgio-2.0-dev libvdeslirp-dev libepoxy-dev meson acpica-tools wget libvirglrenderer1 python3-setuptools python3-pip libsdl2-dev rsync gcc-mingw-w64-i686 libfl2;
-#sudo dnf install libXxf86vm-devel gcc gcc-c++ kernel-devel  rsync make patch git ninja-build xxd xz-devel.x86_64 mingw-w64-tools python3-pkgconfig libslirp-devel libepoxy-devel meson acpica-tools wget virglrenderer-devel python3-setuptools python3-pip libfl2 sdl2-compat-devel shasum mingw32-gcc-c++ mingw32-gcc
-
+sudo dnf install libXxf86vm-devel gcc gcc-c++ kernel-devel  rsync make patch git ninja-build xxd xz-devel.x86_64 mingw-w64-tools python3-pkgconfig libslirp-devel libepoxy-devel meson acpica-tools wget virglrenderer-devel python3-setuptools python3-pip libfl2 sdl2-compat-devel shasum mingw32-gcc-c++ mingw32-gcc
 
 export BUILDIR="/home/$USER/qemu924-smoll-linux-build2" &&
 export SRCDIR="sgpu-build2" &&
 
-#cd ~/Downloads
-#wget https://download.qemu.org/qemu-9.2.4.tar.xz &&
-#wget https://github.com/open-watcom/open-watcom-v2/releases/download/Last-CI-build/ow-snapshot.tar.xz &&
-#wget https://github.com/andrewwutw/build-djgpp/releases/download/v3.4/djgpp-linux64-gcc1220.tar.bz2 &&
+cd ~/Downloads
+wget https://download.qemu.org/qemu-9.2.4.tar.xz &&
+wget https://github.com/open-watcom/open-watcom-v2/releases/download/Last-CI-build/ow-snapshot.tar.xz &&
+wget https://github.com/andrewwutw/build-djgpp/releases/download/v3.4/djgpp-linux64-gcc1220.tar.bz2 &&
 
 echo "qemu build starting, proceeding to build prep" ;
 cd ~/ &&
