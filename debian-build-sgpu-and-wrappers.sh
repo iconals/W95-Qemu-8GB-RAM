@@ -2,7 +2,6 @@
 
 sudo apt-get install git ninja-build build-essential xxd xz-utils mingw-w64-tools python3-pkgconfig libgio-2.0-dev libvdeslirp-dev libepoxy-dev meson acpica-tools wget libvirglrenderer1 python3-setuptools python3-pip libsdl2-dev rsync gcc-mingw-w64-i686 libfl2;
 
-export TESTIME="$(date +%Y-%m-%d-%H-%M-%S | sort)"
 export BUILDIR="/home/$USER/qemu924-smoll-linux-build" &&
 export SRCDIR="sgpu-build" &&
 
@@ -26,7 +25,7 @@ bash ../scripts/sign_commit 2>&1 | tee ~/sign-commit.txt &&
 mkdir ../build &&
 cd ../build &&
 ../qemu-9.2.4/configure –iasl=/usr/bin/iasl --enable-tcg --disable-tcg-interpreter --enable-hv-balloon --enable-fdt=auto --enable-qcow1 --disable-whpx --disable-hvf --enable-opengl --enable-slirp --target-list=x86_64-softmmu,i386-softmmu --enable-kvm --enable-sdl –audio-drv-list=sdl,pa --enable-relocatable --enable-strip --enable-membarrier --enable-iconv --enable-lto --enable-tools --prefix=$BUILDIR --extra-cflags=" -mtune=generic -march=x86-64-v2 " 2>&1 | tee ~/Configure-latest.txt  && 
-make -j 6 && make install -j 6 &&
+make -j$(( $(nproc) - 2 )) && make install -j$(( $(nproc) - 2 )) &&
 cd ~/ &&
 mv ~/Configure-latest.txt  ${BUILDIR}/configure-latest.txt &&
 mv ~/sign-commit.txt ${BUILDIR}/sign-commit.txt &&
