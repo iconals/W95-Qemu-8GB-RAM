@@ -1,4 +1,4 @@
-These scripts can be run together from power shell, provided, paths tp msys2_shell.cmd are correct:
+These scripts can be run together from power shell 6/7, provided, paths tp msys2_shell.cmd are correct:
 
 ``` 
  g:/msys64/msys2_shell.cmd -defterm -here -no-start -ucrt64 -c "~/qemu924-sgpu-build.sh" ; 
@@ -57,6 +57,7 @@ echo "done"
 ```
 $ cat ./qemu924-sgpu-build-wrappers.sh
 #!/bin/bash
+# This script needs to be run from mingw32 shell
 
 export DEPDIR=/home/$USER/qemu-sgpu-deps &&
 export BUILDIR="/home/$USER/qemu-924-sgpu-3dfx" &&
@@ -84,12 +85,14 @@ rsync -avHp /home/$USER/$SRCDIR/qemu-3dfx/wrappers/3dfx/build/ $BUILDIR/wrappers
 cd ~/ ;
 echo "done"
 ```
+
+This builds ISO from SoftGPU release with wrappers builts previously, and updates signature in registry file.
 ```
 $ cat ./qemu924-sgpu-build-iso.sh
 #!/bin/bash
 
 export DEPDIR=/home/$USER/qemu-sgpu-deps ;
-export ISODIR=/t/sgpu ;
+export ISODIR=~/home/$USER/softgpu ;
 
 unzip $DEPDIR/softgpu-0.8.2025.53.zip -d $ISODIR ;
 
