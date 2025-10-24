@@ -99,7 +99,7 @@ $ cat ./qemu924-sgpu-build-iso.sh
 #!/bin/bash
 
 export DEPDIR=/home/$USER/qemu-sgpu-deps ;
-export ISODIR=~/home/$USER/softgpu ;
+export ISODIR=/home/$USER/softgpu-iso ;
 
 unzip $DEPDIR/softgpu-0.8.2025.53.zip -d $ISODIR ;
 
