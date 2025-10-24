@@ -21,7 +21,7 @@ cd $DEPDIR &&
 
 wget https://download.qemu.org/qemu-9.2.4.tar.xz &&
 wget https://github.com/open-watcom/open-watcom-v2/releases/download/Last-CI-build/ow-snapshot.tar.xz &&
-wget https://github.com/andrewwutw/build-djgpp/releases/download/v3.4/djgpp-linux64-gcc1220.tar.bz2 &&
+wget https://github.com/andrewwutw/build-djgpp/releases/download/v3.4/djgpp-mingw-gcc1220-standalone.zip &&
 wget https://github.com/JHRobotics/softgpu/releases/download/v0.8.2025.53/softgpu-0.8.2025.53.zip &&
 wget http://download.wsusoffline.net/mkisofs.exe  &&
 wget raw.githubusercontent.com/iconals/W95-Qemu-8GB-RAM/refs/heads/main/iasl.patch &&
@@ -64,7 +64,13 @@ export DEPDIR=/home/$USER/qemu-sgpu-deps &&
 export BUILDIR="/home/$USER/qemu-924-sgpu-3dfx" &&
 export SRCDIR="sgpu-3dfx-build-924-current" &&
 
-
+cd $DEPDIR &&
+unzip ./djgpp-mingw-gcc1220-standalone.zip &&
+tar xjf ./djgpp-linux64-gcc1220.tar.bz2 &&
+mkdir -p owatcom &&
+cd owatcom &&
+tar xf ../ow-snapshot.tar.xz  &&
+cd .. &&
 export PATH="${PATH}:$DEPDIR/owatcom/binnt64" ;
 export PATH="${PATH}:$DEPDIR/djgpp/bin" ;
 export PATH="${PATH}:$DEPDIR/djgpp/i586-pc-msdosdjgpp/bin" ;
