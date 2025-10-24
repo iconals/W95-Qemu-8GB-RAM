@@ -2,7 +2,8 @@
 Sample script for building a relocatable qemu from qemu.org in UCRT64 on windows with msys2
 This script is also used with this script to copy DLL's from UCRT64/bin so qemu can be relocated. 
 
-https://gist.github.com/iconals/a17c1bf16e8af24937358e638817e8a2
+https://gist.github.com/iconals/a17c1bf16e8af24937358e638817e8a2 # or 
+https://gist.githubusercontent.com/iconals/a17c1bf16e8af24937358e638817e8a2/raw/52face922fb477d877f9f5062061591c1dfdd495/mingw-copy-deps.sh
 
 Packages needed:
  git
