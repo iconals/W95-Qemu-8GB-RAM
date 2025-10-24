@@ -25,6 +25,7 @@ wget https://github.com/andrewwutw/build-djgpp/releases/download/v3.4/djgpp-linu
 wget https://github.com/JHRobotics/softgpu/releases/download/v0.8.2025.53/softgpu-0.8.2025.53.zip &&
 wget http://download.wsusoffline.net/mkisofs.exe  &&
 wget raw.githubusercontent.com/iconals/W95-Qemu-8GB-RAM/refs/heads/main/iasl.patch &&
+wget https://gist.githubusercontent.com/iconals/a17c1bf16e8af24937358e638817e8a2/raw/52face922fb477d877f9f5062061591c1dfdd495/mingw-copy-deps.sh &&
 
 echo "qemu build starting, proceeding to build prep" ;
 cd ~/ &&
@@ -46,7 +47,7 @@ cd ../build &&
 make -j$(( $(nproc) - 2 )) && make install -j$(( $(nproc) - 2 )) &&
 cd ~/ &&
 mv ~/Configure-latest.txt  ${BUILDIR}/configure-latest.txt &&
-bash $DEPDIR/ming-deps.sh /ucrt64/bin/ ${BUILDIR}/qemu-system-x86_64.exe &&
+bash $DEPDIR/mingw-copy-deps.sh /ucrt64/bin/ ${BUILDIR}/qemu-system-x86_64.exe &&
 mv ~/sign-commit.txt ${BUILDIR}/. &&
 cd ${BUILDIR}/share/ && cat edk2-i386-vars.fd edk2-x86_64-code.fd > OVMF.FD && cp OVMF.FD OVMF.BIN && cd - ;
 echo "qemu build complete" ;
