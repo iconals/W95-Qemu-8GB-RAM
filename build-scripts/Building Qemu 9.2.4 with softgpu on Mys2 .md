@@ -4,7 +4,7 @@ These scripts can be run together from power shell 6/7, provided, paths tp msys2
  g:/msys64/msys2_shell.cmd -defterm -here -no-start -ucrt64 -c "~/qemu924-sgpu-build.sh" ; 
  g:/msys64/msys2_shell.cmd -defterm -here -no-start -mingw32 -c "~/qemu924-sgpu-build-wrappers.sh" ; 
  g:/msys64/msys2_shell.cmd -defterm -here -no-start -ucrt64 -c "~/qemu924-sgpu-build-iso.sh" ;
- echo "done" 
+ echo "done" ;
 ```
 
 ```
