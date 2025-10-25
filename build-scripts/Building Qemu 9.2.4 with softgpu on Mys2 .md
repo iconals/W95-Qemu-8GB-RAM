@@ -25,8 +25,7 @@ wget https://github.com/open-watcom/open-watcom-v2/releases/download/Last-CI-bui
 wget https://github.com/andrewwutw/build-djgpp/releases/download/v3.4/djgpp-mingw-gcc1220-standalone.zip &&
 wget https://github.com/JHRobotics/softgpu/releases/download/v0.8.2025.53/softgpu-0.8.2025.53.zip &&
 wget http://download.wsusoffline.net/mkisofs.exe  &&
-wget raw.githubusercontent.com/iconals/W95-Qemu-8GB-RAM/refs/heads/main/iasl.patch &&
-wget https://gist.githubusercontent.com/iconals/a17c1bf16e8af24937358e638817e8a2/raw/52face922fb477d877f9f5062061591c1dfdd495/mingw-copy-deps.sh &&
+wget https://raw.githubusercontent.com/iconals/W95-Qemu-8GB-RAM/refs/heads/main/mingw-copy-deps.sh &&
 
 echo "qemu build starting, proceeding to build prep" ;
 cd ~/ &&
