@@ -27,6 +27,8 @@ wget https://github.com/JHRobotics/softgpu/releases/download/v0.8.2025.53/softgp
 wget http://download.wsusoffline.net/mkisofs.exe  &&
 wget https://raw.githubusercontent.com/iconals/W95-Qemu-8GB-RAM/refs/heads/main/mingw-copy-deps.sh &&
 wget https://github.com/user-attachments/files/21674608/iasl-win-20250807.zip &&
+wget raw.githubusercontent.com/iconals/W95-Qemu-8GB-RAM/refs/heads/main/iasl.patch &&
+
 
 mkdir iasl && cd iasl &&
 unzip $DEPDIR/iasl-win-20250807.zip &&
