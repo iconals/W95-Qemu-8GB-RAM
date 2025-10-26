@@ -72,7 +72,6 @@ export SRCDIR="sgpu-3dfx-build-924-current" &&
 
 cd $DEPDIR &&
 unzip ./djgpp-mingw-gcc1220-standalone.zip &&
-tar xjf ./djgpp-linux64-gcc1220.tar.bz2 &&
 mkdir -p owatcom &&
 cd owatcom &&
 tar xvJf ../ow-snapshot.tar.xz ./binnt64  &&
