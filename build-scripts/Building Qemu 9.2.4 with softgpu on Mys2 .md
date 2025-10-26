@@ -75,7 +75,7 @@ unzip ./djgpp-mingw-gcc1220-standalone.zip &&
 tar xjf ./djgpp-linux64-gcc1220.tar.bz2 &&
 mkdir -p owatcom &&
 cd owatcom &&
-tar xf ../ow-snapshot.tar.xz  &&
+tar xvJf ../ow-snapshot.tar.xz ./binnt64  &&
 cd .. &&
 export PATH="${PATH}:$DEPDIR/owatcom/binnt64" ;
 export PATH="${PATH}:$DEPDIR/djgpp/bin" ;
