@@ -1,4 +1,4 @@
-These scripts can be run together from power shell 6/7, provided, paths tp msys2_shell.cmd are correct:
+These scripts can be run together from power shell 6/7, provided, paths to msys2_shell.cmd are correct:
 
 ``` 
  g:/msys64/msys2_shell.cmd -defterm -here -no-start -ucrt64 -c "~/qemu924-sgpu-build.sh" ; 
