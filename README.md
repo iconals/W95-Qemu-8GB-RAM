@@ -25,7 +25,7 @@ Or if you want a sound blaster 16 card:
 
 For installation, you would want to boot to a windows floppy to fdisk and format drive.
 
-Then use ```xcopy /s /e R: c:\\win95``` to copy contents from cdrom to hdd.
+Then use ```xcopy /s /e R: c:\win95``` to copy contents from cdrom to hdd.
 
 Then run ```setup.exe /p i;m /is``` from MS DOS.
 
